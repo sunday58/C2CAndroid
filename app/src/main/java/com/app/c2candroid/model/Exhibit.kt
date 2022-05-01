@@ -9,13 +9,12 @@ import com.google.gson.annotations.SerializedName
 
     @Entity(tableName = "exhibit_table")
     data class Exhibit(
+        @PrimaryKey(autoGenerate = false)
+        val id: Int = 1,
         @TypeConverters(ExhibitImageConverter::class)
         @SerializedName("images")
         val images: List<String> = listOf(),
         @SerializedName("title")
         val title: String = ""
-    ){
-        @PrimaryKey(autoGenerate = false)
-        val id: Int = 1
-    }
+    )
 

@@ -16,6 +16,7 @@ import com.app.c2candroid.application.adapters.ExhibitAdapter
 import com.app.c2candroid.databinding.ActivityMainBinding
 import com.app.c2candroid.model.Exhibit
 import com.app.c2candroid.utils.DataState
+import com.app.c2candroid.utils.checkInternet
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,19 +35,19 @@ class MainActivity : AppCompatActivity() {
         dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
 
-    }
-
-    override fun onCreateView(
-        parent: View?,
-        name: String,
-        context: Context,
-        attrs: AttributeSet
-    ): View? {
-        subscribeObservers()
-        return super.onCreateView(parent, name, context, attrs)
+        fetchData()
 
     }
 
+
+    private fun fetchData(){
+        if ( checkInternet(this)){
+            dialog.dismiss()
+            subscribeObservers()
+        }else{
+            showErrorDialog("Network Error", "please check your internet and try again"){fetchData()}
+        }
+    }
 
     private fun subscribeObservers(){
         viewModel.getStateEvent(MainStateEvent.GetExhibitEvents){}
