@@ -1,6 +1,7 @@
-package com.app.c2candroid
+package com.app.c2candroid.applicationTest
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.app.c2candroid.TestCoroutineRule
 import com.app.c2candroid.application.MainStateEvent
 import com.app.c2candroid.application.MainViewModel
 import com.app.c2candroid.utils.DataState
