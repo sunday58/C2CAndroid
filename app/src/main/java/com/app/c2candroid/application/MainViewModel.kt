@@ -42,6 +42,14 @@ constructor(
         }
     }
 
+     fun getDisplayExhibit(result: (List<Exhibit>) -> Unit){
+        viewModelScope.launch {
+            mainRepository.getDisplayExhibit{
+                result(it)
+            }
+        }
+    }
+
 }
 
 sealed class MainStateEvent(){

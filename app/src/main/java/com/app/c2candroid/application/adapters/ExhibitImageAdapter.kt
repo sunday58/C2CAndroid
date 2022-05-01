@@ -11,6 +11,7 @@ import com.app.c2candroid.R
 import com.app.c2candroid.application.FullImageActivity
 import com.app.c2candroid.application.MainActivity
 import com.app.c2candroid.databinding.ImagesListItemsBinding
+import com.app.c2candroid.utils.Constants.FullImage
 import com.bumptech.glide.Glide
 
 
@@ -36,7 +37,7 @@ class ExhibitImageAdapter (private  val listItem: List<String>, private val acti
 
                 binding.exhibitImage.setOnClickListener {
                     val intent = Intent(binding.root.context, FullImageActivity::class.java)
-                    intent.putExtra("FullImage", listItem[position])
+                    intent.putExtra(FullImage, listItem[position])
                    activity.startActivity(intent)
                 }
             }

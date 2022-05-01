@@ -5,4 +5,5 @@
     <dimen name="dimen12">12dp</dimen>
     <dimen name="dimen8">8dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dimen120">120dp</dimen>
 </resources>

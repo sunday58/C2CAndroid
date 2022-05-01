@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.app.c2candroid.R
 import com.app.c2candroid.databinding.ActivityFullImageBinding
 import com.app.c2candroid.databinding.ActivityMainBinding
+import com.app.c2candroid.utils.Constants.FullImage
 import com.bumptech.glide.Glide
 
 class FullImageActivity : AppCompatActivity() {
@@ -15,7 +16,7 @@ class FullImageActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val result = intent.extras?.getString("FullImage")
+        val result = intent.extras?.getString(FullImage)
         Glide.with(binding.root)
             .load(result)
             .into(binding.largeImage)

@@ -6,7 +6,6 @@ import com.app.c2candroid.model.ExhibitLoader
 import com.app.c2candroid.restExhibitLoader.localStorage.ExhibitDao
 import com.app.c2candroid.utils.DataState
 import com.skydoves.sandwich.*
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import org.json.JSONObject
@@ -21,7 +20,6 @@ class ExhibitRepository
 {
         suspend fun getExhibit(): Flow<DataState<List<Exhibit>>> = flow {
             DataState.Loading
-            delay(timeMillis = 1000)
             val response = exhibitRetrofit.getExhibitList()
             response.suspendOnSuccess {
                 val  networkData = data
@@ -50,15 +48,19 @@ class ExhibitRepository
                 }
             }
             response.suspendOnException {
-                if (exception.message!!.contains("Unable to resolve host")) {
-                    emit(DataState.otherError("we are unable to process your request, please try again later"))
-                }else{
+              //  if (exception.message!!.contains("Unable to resolve host")) {
+                   // emit(DataState.otherError("we are unable to process your request, please try again later"))
+               // }else{
                     Log.d("message", exception.message!!)
                     emit(DataState.Error(exception))
-                }
+               // }
 
             }
 
         }
+
+    suspend fun getDisplayExhibit(result: (List<Exhibit>) -> Unit){
+        result(exhibitDao.get())
+    }
 
     }

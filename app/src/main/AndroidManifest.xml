@@ -17,11 +17,6 @@
             android:name=".application.FullImageActivity"
             android:exported="false" />
         <activity
-            android:name=".application.FullImage"
-            android:exported="false"
-            android:label="@string/title_activity_full_image"
-            android:theme="@style/Theme.C2CAndroid.NoActionBar" />
-        <activity
             android:name=".application.MainActivity"
             android:exported="true">
             <intent-filter>
