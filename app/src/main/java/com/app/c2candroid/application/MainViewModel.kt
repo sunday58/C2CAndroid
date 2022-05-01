@@ -20,19 +20,18 @@ constructor(
     private val mainRepository: ExhibitRepository,
 ): ViewModel(){
 
-
-
     private val _dataState: MutableLiveData<DataState<List<Exhibit>>> = MutableLiveData()
     val dataState: LiveData<DataState<List<Exhibit>>>
     get() = _dataState
 
-    fun setStateEvent(mainStateEvent: MainStateEvent){
+    fun getStateEvent(mainStateEvent: MainStateEvent, result: (DataState<List<Exhibit>>)-> Unit ){
         viewModelScope.launch {
             when(mainStateEvent){
-                is MainStateEvent.GetWeatherEvents -> {
+                is MainStateEvent.GetExhibitEvents -> {
                     mainRepository.getExhibit()
                         .onEach { dataState ->
                             _dataState.value = dataState
+                            result(dataState) // for testing
                         }
                         .launchIn(viewModelScope)
                 }
@@ -46,7 +45,7 @@ constructor(
 }
 
 sealed class MainStateEvent(){
-    object GetWeatherEvents: MainStateEvent()
+    object GetExhibitEvents: MainStateEvent()
 
     object None: MainStateEvent()
 }
