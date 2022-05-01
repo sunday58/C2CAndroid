@@ -1,8 +1,8 @@
 package com.app.c2candroid.di
 
-import com.app.c2candroid.apiResponse.ExhibitLoader
-import com.app.c2candroid.localStorage.ExhibitDao
-import com.app.c2candroid.repository.ExhibitRepository
+import com.app.c2candroid.model.ExhibitLoader
+import com.app.c2candroid.restExhibitLoader.localStorage.ExhibitDao
+import com.app.c2candroid.restExhibitLoader.repository.ExhibitRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

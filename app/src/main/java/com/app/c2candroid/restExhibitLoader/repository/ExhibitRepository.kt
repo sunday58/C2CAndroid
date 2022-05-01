@@ -1,9 +1,9 @@
-package com.app.c2candroid.repository
+package com.app.c2candroid.restExhibitLoader.repository
 
 import android.util.Log
-import com.app.c2candroid.apiResponse.Exhibit
-import com.app.c2candroid.apiResponse.ExhibitLoader
-import com.app.c2candroid.localStorage.ExhibitDao
+import com.app.c2candroid.model.Exhibit
+import com.app.c2candroid.model.ExhibitLoader
+import com.app.c2candroid.restExhibitLoader.localStorage.ExhibitDao
 import com.app.c2candroid.utils.DataState
 import com.skydoves.sandwich.*
 import kotlinx.coroutines.delay

@@ -1,6 +1,6 @@
 package com.app.c2candroid.di
 
-import com.app.c2candroid.apiResponse.ExhibitLoader
+import com.app.c2candroid.model.ExhibitLoader
 import com.app.c2candroid.utils.Constants
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -56,7 +56,7 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun providesBlogService(retrofit: Retrofit.Builder): ExhibitLoader{
+    fun providesBlogService(retrofit: Retrofit.Builder): ExhibitLoader {
         return retrofit
             .build()
             .create(ExhibitLoader::class.java)

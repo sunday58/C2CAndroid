@@ -1,7 +1,7 @@
-package com.app.c2candroid.localStorage
+package com.app.c2candroid.restExhibitLoader.localStorage
 
 import androidx.room.*
-import com.app.c2candroid.apiResponse.Exhibit
+import com.app.c2candroid.model.Exhibit
 
 @Dao
 interface ExhibitDao {

@@ -2,8 +2,8 @@ package com.app.c2candroid.di
 
 import android.content.Context
 import androidx.room.Room
-import com.app.c2candroid.localStorage.ExhibitDao
-import com.app.c2candroid.localStorage.ExhibitDatabase
+import com.app.c2candroid.restExhibitLoader.localStorage.ExhibitDao
+import com.app.c2candroid.restExhibitLoader.localStorage.ExhibitDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

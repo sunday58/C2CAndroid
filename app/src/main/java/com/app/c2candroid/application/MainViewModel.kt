@@ -1,11 +1,11 @@
-package com.app.c2candroid.ui
+package com.app.c2candroid.application
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.app.c2candroid.apiResponse.Exhibit
-import com.app.c2candroid.repository.ExhibitRepository
+import com.app.c2candroid.model.Exhibit
+import com.app.c2candroid.restExhibitLoader.repository.ExhibitRepository
 import com.app.c2candroid.utils.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn

@@ -1,4 +1,4 @@
-package com.app.c2candroid.ui
+package com.app.c2candroid.application
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

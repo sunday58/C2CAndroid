@@ -1,10 +1,10 @@
-package com.app.c2candroid.localStorage
+package com.app.c2candroid.restExhibitLoader.localStorage
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.app.c2candroid.apiResponse.Exhibit
-import com.app.c2candroid.localStorage.converters.ExhibitImageConverter
+import com.app.c2candroid.model.Exhibit
+import com.app.c2candroid.restExhibitLoader.localStorage.converters.ExhibitImageConverter
 
 @Database(
     entities = [Exhibit::class],

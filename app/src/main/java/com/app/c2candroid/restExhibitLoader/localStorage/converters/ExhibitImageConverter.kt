@@ -1,4 +1,4 @@
-package com.app.c2candroid.localStorage.converters
+package com.app.c2candroid.restExhibitLoader.localStorage.converters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
