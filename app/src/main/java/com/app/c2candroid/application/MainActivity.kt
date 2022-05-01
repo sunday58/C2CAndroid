@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.view.Window
 import android.widget.Button
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                 when (dataState) {
                     is DataState.success<List<Exhibit>> -> {
                         displayProgressBar(false)
+                        Log.d("items", "${dataState.data}")
                         initAdapter(dataState.data)
                     }
                     is DataState.Error -> {
@@ -91,7 +93,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initAdapter(item: List<Exhibit>){
         binding.exhibitRecyclerItems.layoutManager = LinearLayoutManager(binding.root.context)
-        adapter = ExhibitAdapter(item)
+        adapter = ExhibitAdapter(item, this)
         binding.exhibitRecyclerItems.adapter = adapter
     }
 

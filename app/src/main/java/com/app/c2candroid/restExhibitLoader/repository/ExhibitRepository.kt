@@ -25,9 +25,12 @@ class ExhibitRepository
             val response = exhibitRetrofit.getExhibitList()
             response.suspendOnSuccess {
                 val  networkData = data
-                exhibitDao.insert(networkData)
-
+                for (value in networkData){
+                    Log.d("items Data", "${value}")
+                    exhibitDao.insert(value)
+                }
                 val cacheBlogs = exhibitDao.get()
+                Log.d("items DataDao", "${cacheBlogs}")
                 emit(DataState.success(cacheBlogs))
             }
             response.suspendOnError{

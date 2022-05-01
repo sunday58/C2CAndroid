@@ -6,8 +6,8 @@
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/exhibitImage"
-        android:layout_width="@dimen/dimen100"
-        android:layout_height="@dimen/dimen100"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginEnd="@dimen/dimen12"
         android:scaleType="fitCenter"
         android:src="@drawable/sample_image"
@@ -15,11 +15,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:riv_border_color="#333333"
-        app:riv_border_width="2dip"
-        app:riv_corner_radius="30dip"
+        app:riv_corner_radius="5dip"
         app:riv_mutate_background="true"
-        app:riv_oval="true"
+        app:riv_oval="false"
         app:riv_tile_mode="repeat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
