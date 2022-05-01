@@ -18,7 +18,6 @@ import kotlin.test.assertNotNull
 @RunWith(AndroidJUnit4::class)
 class ExhibitDaoTest {
 
-
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
@@ -54,7 +53,7 @@ class ExhibitDaoTest {
     }
 
     @Test
-    fun `insert user into database`() = testCoroutineRule.runBlockingTest {
+    fun `insert user into exhibit database`() = testCoroutineRule.runBlockingTest {
         val result = database.exhibitDao().insert(exhibit)
         assertNotNull(result)
     }

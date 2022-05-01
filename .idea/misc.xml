@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/curved_frame.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.246875" />
+        <entry key="app/src/main/res/layout/custom_dialog_error.xml" value="0.246875" />
         <entry key="app/src/main/res/layout/exhibit_list_items.xml" value="0.246875" />
         <entry key="app/src/main/res/layout/images_list_items.xml" value="0.246875" />
       </map>
