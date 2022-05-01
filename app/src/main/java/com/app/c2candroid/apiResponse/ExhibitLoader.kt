@@ -1,12 +1,12 @@
 package com.app.c2candroid.apiResponse
 
 
+import com.app.c2candroid.utils.Constants.EXHIBIT_LIST
 import com.skydoves.sandwich.ApiResponse
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 interface ExhibitLoader {
 
-    @GET("group")
-    suspend fun getExhibitList(): ApiResponse<Exhibit>
+    @GET(EXHIBIT_LIST)
+    suspend fun getExhibitList(): ApiResponse<List<Exhibit>>
 }

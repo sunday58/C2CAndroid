@@ -1,15 +1,21 @@
 package com.app.c2candroid.apiResponse
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.app.c2candroid.localStorage.converters.ExhibitImageConverter
 import com.google.gson.annotations.SerializedName
 
-class Exhibit : ArrayList<Exhibit.ExhibitItem>(){
-
-    data class ExhibitItem(
+    @Entity(tableName = "exhibit_table")
+    data class Exhibit(
+        @TypeConverters(ExhibitImageConverter::class)
         @SerializedName("images")
         val images: List<String> = listOf(),
         @SerializedName("title")
         val title: String = ""
-    )
+    ){
+        @PrimaryKey(autoGenerate = false)
+        val id: Int = 1
+    }
 
-}
