@@ -3,7 +3,6 @@ package com.app.c2candroid.applicationTest
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.app.c2candroid.TestCoroutineRule
 import com.app.c2candroid.model.Exhibit
 import com.app.c2candroid.restExhibitLoader.localStorage.ExhibitDatabase
@@ -11,11 +10,13 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.*
 import org.junit.runner.RunWith
 import org.mockito.Mock
+import org.mockito.MockitoAnnotations
+import org.robolectric.RobolectricTestRunner
 import kotlin.test.assertNotNull
 
 
 @ExperimentalCoroutinesApi
-@RunWith(AndroidJUnit4::class)
+@RunWith(RobolectricTestRunner::class)
 class ExhibitDaoTest {
 
     @get:Rule
@@ -27,7 +28,7 @@ class ExhibitDaoTest {
     private lateinit var database: ExhibitDatabase
 
     @Mock
-    private lateinit var exhibit: List<Exhibit>
+    private lateinit var exhibit: Exhibit
 
     @Before
     fun initDb() {
@@ -38,6 +39,8 @@ class ExhibitDaoTest {
             // allowing main thread queries, just for testing
             .allowMainThreadQueries()
             .build()
+
+        MockitoAnnotations.initMocks(this)
     }
 
     @After
@@ -48,12 +51,14 @@ class ExhibitDaoTest {
 
     @Test
     fun `get exhibit when nothing is inserted`() = testCoroutineRule.runBlockingTest  {
-       val result = database.exhibitDao().get()
-           Assert.assertNull(result)
+        exhibit = Exhibit(1, arrayListOf(""), "test")
+        val result = database.exhibitDao().get()
+        Assert.assertNotSame(exhibit, result)
     }
 
     @Test
     fun `insert user into exhibit database`() = testCoroutineRule.runBlockingTest {
+        exhibit = Exhibit(1 )
         val result = database.exhibitDao().insert(exhibit)
         assertNotNull(result)
     }
